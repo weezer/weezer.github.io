@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>07. Reverse Integer - Weezer's BXJ</title>
+    <title>tricks - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,23 +11,16 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="/leetcode-7-Reverse_Integer.html">
 
-        <meta name="author" content="Weezer Su" />
-        <meta name="keywords" content="code,python,leetcode" />
-        <meta name="description" content="Reverse Integer" />
+    <meta name="author" content="Weezer Su" />
+    <meta name="keywords" content="tricks" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="07. Reverse Integer"/>
-        <meta property="og:url" content="/leetcode-7-Reverse_Integer.html"/>
-        <meta property="og:description" content="Reverse Integer"/>
-        <meta property="article:published_time" content="2016-09-16" />
-            <meta property="article:section" content="leetcode" />
-            <meta property="article:tag" content="code" />
-            <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="leetcode" />
-            <meta property="article:author" content="Weezer Su" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Weezer's BXJ"/>
+        <meta property="og:url" content=""/>
+        <meta property="og:description" content="Weezer's BXJ"/>
 
 
     <!-- Bootstrap -->
@@ -57,7 +50,7 @@ Weezer's BXJ            </a>
                          <li><a href="/pages/about-myself.html">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="/category/leetcode.html">Leetcode</a>
                         </li>
                         <li >
@@ -80,78 +73,13 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="/leetcode-7-Reverse_Integer.html"
-                       rel="bookmark"
-                       title="Permalink to 07. Reverse Integer">
-                        07. Reverse Integer
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-09-16T01:38:00-05:00"> Fri 16 September 2016</time>
-    </span>
-
-        <span class="label label-default">Category</span>
-        <a href="/category/leetcode.html">leetcode</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="/tag/code.html">code</a>
-        /
-	<a href="/tag/python.html">python</a>
-        /
-	<a href="/tag/leetcode.html">leetcode</a>
-    
-</footer><!-- /.post-info -->                    </div>
+            <article>
+                <h2><a href="/python-decorator-by-openstack-horizon.html">Python Decorator example by openstack Horizon source code</a></h2>
+                <div class="summary"><p>Openstack Horizon coders like to use alot of tricks in the project.</p>
+                    <a class="btn btn-default btn-xs" href="/python-decorator-by-openstack-horizon.html">more ...</a>
                 </div>
-                <p>Well pythonic doesn't care about the boundary of integer or whatever, but if you want to submit a answer on leetcode
-you have to enter the boundary for this question.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># @return an integer</span>
-    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">newN</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">sym</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
-            <span class="n">sym</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">answer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">10</span>
-            <span class="n">newN</span> <span class="o">=</span> <span class="n">newN</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">answer</span>
-            <span class="n">x</span> <span class="o">/=</span> <span class="mi">10</span>
-        <span class="c1">#stupid question because dumb c or c++ coder.            </span>
-        <span class="k">if</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span> <span class="o">&lt;</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)</span> <span class="ow">or</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">return</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span>
-</pre></div>
-</td></tr></table>
-            </div>
-            <!-- /.entry-content -->
-        </article>
-    </section>
+            </article>
+            <hr/>
 
         </div>
         <div class="col-sm-3" id="sidebar">

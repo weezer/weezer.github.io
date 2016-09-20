@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>07. Reverse Integer - Weezer's BXJ</title>
+    <title>Python Decorator example by openstack Horizon source code - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,22 +11,21 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="/leetcode-7-Reverse_Integer.html">
+<link rel="canonical" href="/python-decorator-by-openstack-horizon.html">
 
         <meta name="author" content="Weezer Su" />
-        <meta name="keywords" content="code,python,leetcode" />
-        <meta name="description" content="Reverse Integer" />
+        <meta name="keywords" content="tricks,python" />
+        <meta name="description" content="Openstack Horizon coders like to use alot of tricks in the project." />
 
         <meta property="og:site_name" content="Weezer's BXJ" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="07. Reverse Integer"/>
-        <meta property="og:url" content="/leetcode-7-Reverse_Integer.html"/>
-        <meta property="og:description" content="Reverse Integer"/>
-        <meta property="article:published_time" content="2016-09-16" />
+        <meta property="og:title" content="Python Decorator example by openstack Horizon source code"/>
+        <meta property="og:url" content="/python-decorator-by-openstack-horizon.html"/>
+        <meta property="og:description" content="Openstack Horizon coders like to use alot of tricks in the project."/>
+        <meta property="article:published_time" content="2016-09-19" />
             <meta property="article:section" content="leetcode" />
-            <meta property="article:tag" content="code" />
+            <meta property="article:tag" content="tricks" />
             <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="leetcode" />
             <meta property="article:author" content="Weezer Su" />
 
 
@@ -84,10 +83,10 @@ Weezer's BXJ            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/leetcode-7-Reverse_Integer.html"
+                    <a href="/python-decorator-by-openstack-horizon.html"
                        rel="bookmark"
-                       title="Permalink to 07. Reverse Integer">
-                        07. Reverse Integer
+                       title="Permalink to Python Decorator example by openstack Horizon source code">
+                        Python Decorator example by openstack Horizon source code
                     </a>
                 </h1>
             </header>
@@ -97,7 +96,7 @@ Weezer's BXJ            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-09-16T01:38:00-05:00"> Fri 16 September 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-09-19T22:07:00-05:00"> Mon 19 September 2016</time>
     </span>
 
         <span class="label label-default">Category</span>
@@ -105,16 +104,13 @@ Weezer's BXJ            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="/tag/code.html">code</a>
+	<a href="/tag/tricks.html">tricks</a>
         /
 	<a href="/tag/python.html">python</a>
-        /
-	<a href="/tag/leetcode.html">leetcode</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Well pythonic doesn't care about the boundary of integer or whatever, but if you want to submit a answer on leetcode
-you have to enter the boundary for this question.</p>
+                <p>Below is a example from the horizon integration testing script.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -130,24 +126,37 @@ you have to enter the boundary for this question.</p>
 13
 14
 15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="c1"># @return an integer</span>
-    <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="n">newN</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">sym</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span>
-            <span class="n">sym</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-        <span class="k">while</span> <span class="n">x</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">answer</span> <span class="o">=</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">10</span>
-            <span class="n">newN</span> <span class="o">=</span> <span class="n">newN</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">answer</span>
-            <span class="n">x</span> <span class="o">/=</span> <span class="mi">10</span>
-        <span class="c1">#stupid question because dumb c or c++ coder.            </span>
-        <span class="k">if</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span> <span class="o">&lt;</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)</span> <span class="ow">or</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">31</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">return</span> <span class="n">newN</span> <span class="o">*</span> <span class="n">sym</span>
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bind_table_action</span><span class="p">(</span><span class="n">action_name</span><span class="p">):</span>
+    <span class="n">_actions_locator</span> <span class="o">=</span> <span class="p">(</span><span class="n">by</span><span class="o">.</span><span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span><span class="p">,</span> <span class="s1">&#39;div.table_actions &gt; button,&#39;</span>
+                                            <span class="s1">&#39; div.table_actions &gt; a&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">method</span><span class="p">):</span>
+        <span class="nd">@functools.wraps</span><span class="p">(</span><span class="n">method</span><span class="p">)</span>
+        <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+            <span class="n">actions</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">_get_elements</span><span class="p">(</span><span class="o">*</span><span class="n">_actions_locator</span><span class="p">)</span>
+            <span class="n">action_element</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">actions</span><span class="p">:</span>
+                <span class="n">target_action_id</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">__action_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">action_name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">action</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">target_action_id</span><span class="p">:</span>
+                    <span class="n">action_element</span> <span class="o">=</span> <span class="n">action</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="n">action_element</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Could not bind method &#39;</span><span class="si">%s</span><span class="s2">&#39; to action control &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="p">(</span>
+                    <span class="n">method</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">action_name</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">action_element</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
 </pre></div>
 </td></tr></table>
+
+<p>how to use it? you can see it's a <strong>DECORATOR</strong>, so if you have any funtion or method you can decorate it with the above script for make it as another one. the real function you get will be the one <strong>return method(table, action_element)</strong>.</p>
+<p>but what the fuck is the return method(table, action_element)? the first layer is useless, just give the action_name to the error message, second layer is the real decorator, @functools.wraps just fetch the docs from the method you put into the parameter, and the damn <strong>'table'</strong>, actually it's the first argument from the method you just passed into decorator and functools.wraps. BE AWARE! if you are decorating a class method, the first argument is <strong>'self'</strong>, the instance itself!!!!</p>
             </div>
             <!-- /.entry-content -->
         </article>
