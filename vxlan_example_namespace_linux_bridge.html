@@ -110,89 +110,101 @@ Weezer's BXJ            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>We need 2 machines, VM is fine, the first one ip are 10.0.0.5/10.0.1.5/10.0.2.5
-1. Create a network namespace for both companies</p>
+                <p>We need 2 machines, VM is fine, the first one ip are 10.0.0.5/10.0.1.5/10.0.2.5</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>1. Create a network namespace for both companies
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns add mcdonalds
 ip netns add burgerking
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Create veth pairs for both companies</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>2. Create veth pairs for both companies
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link add mdveth0 <span class="nb">type</span> veth peer name mdveth1
 ip link add bkveth0 <span class="nb">type</span> veth peer name bkveth1
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Add veth1 to each company's namespace</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>3. Add veth1 to each company&#39;s namespace
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> mdveth1 netns mcdonalds
 ip link <span class="nb">set</span> bkveth1 netns burgerking
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Add the same ip to veth1 in both company namespaces</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>4. Add the same ip to veth1 in both company namespaces
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns <span class="nb">exec</span> mcdonalds ip a add dev mdveth1 10.1.0.5/24
 ip netns <span class="nb">exec</span> burgerking ip a add dev bkveth1 10.1.0.5/24
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Create linux bridge for each</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>5. Create linux bridge for each
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addbr br-md
 brctl addbr br-bk
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Add a veth pair to linux bridge</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>6. Add a veth pair to linux bridge
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addif br-md mdveth0
 brctl addif br-bk bkveth0
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Create a point-topoint VXLAN interface for each company</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>7. Create a point-topoint VXLAN interface for each company
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link add vxlan-10 <span class="nb">type</span> vxlan id <span class="m">10</span> remote 10.0.2.4 dev eth0
 ip link add vxlan-20 <span class="nb">type</span> vxlan id <span class="m">20</span> remote 10.0.2.4 dev eth0
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Use the -d flag with ip link to show the nic linked to the VXLAN interface:</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>8. Use the -d flag with ip link to show the nic linked to the VXLAN interface:
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip -d link show vxlan-10
 ip -d link show vxlan-20
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Add the point to point VXlan to linux bridge</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>9. Add the point to point VXlan to linux bridge
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addif br-md vxlan-10
 brctl addif br-bk vxlan-20
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Bring up the veth pairs:</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>10. Bring up the veth pairs:
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -203,27 +215,30 @@ ip netns <span class="nb">exec</span> burgerking ip link <span class="nb">set</s
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Bring up the loopup for fun</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>11. Bring up the loopup for fun
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns <span class="nb">exec</span> mcdonalds ip link <span class="nb">set</span> dev lo up
 ip netns <span class="nb">exec</span> burgerking ip link <span class="nb">set</span> dev lo up
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Bring up each company's bridge</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>12. Bring up each company&#39;s bridge
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> dev br-md up
 ip link <span class="nb">set</span> dev br-bk up
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>Bring up the VXLAN interface</li>
-</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>13. Bring up the VXLAN interface
+</pre></div>
+</td></tr></table>
+
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> dev vxlan-10 up
 ip link <span class="nb">set</span> dev vxlan-20 up
