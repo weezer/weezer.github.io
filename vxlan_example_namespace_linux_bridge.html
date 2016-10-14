@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>First Code article with pelican - Weezer's BXJ</title>
+    <title>VXLANs example with namespace and linux bridge - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,22 +11,21 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="/How-To-Post-Code-Pelican.html">
+<link rel="canonical" href="/vxlan_example_namespace_linux_bridge.html">
 
         <meta name="author" content="Weezer Su" />
-        <meta name="keywords" content="code,python,pelican" />
-        <meta name="description" content="how to post code in pelican." />
+        <meta name="keywords" content="code,network" />
+        <meta name="description" content="Try to seperate network connection by using vxlan" />
 
         <meta property="og:site_name" content="Weezer's BXJ" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="First Code article with pelican"/>
-        <meta property="og:url" content="/How-To-Post-Code-Pelican.html"/>
-        <meta property="og:description" content="how to post code in pelican."/>
-        <meta property="article:published_time" content="2016-03-15" />
+        <meta property="og:title" content="VXLANs example with namespace and linux bridge"/>
+        <meta property="og:url" content="/vxlan_example_namespace_linux_bridge.html"/>
+        <meta property="og:description" content="Try to seperate network connection by using vxlan"/>
+        <meta property="article:published_time" content="2016-10-14" />
             <meta property="article:section" content="tech" />
             <meta property="article:tag" content="code" />
-            <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="pelican" />
+            <meta property="article:tag" content="network" />
             <meta property="article:author" content="Weezer Su" />
 
 
@@ -84,10 +83,10 @@ Weezer's BXJ            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/How-To-Post-Code-Pelican.html"
+                    <a href="/vxlan_example_namespace_linux_bridge.html"
                        rel="bookmark"
-                       title="Permalink to First Code article with pelican">
-                        First Code article with pelican
+                       title="Permalink to VXLANs example with namespace and linux bridge">
+                        VXLANs example with namespace and linux bridge
                     </a>
                 </h1>
             </header>
@@ -97,7 +96,7 @@ Weezer's BXJ            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-15T19:50:00-05:00"> Tue 15 March 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-10-14T12:54:00-05:00"> Fri 14 October 2016</time>
     </span>
 
         <span class="label label-default">Category</span>
@@ -107,89 +106,134 @@ Weezer's BXJ            </a>
 <span class="label label-default">Tags</span>
 	<a href="/tag/code.html">code</a>
         /
-	<a href="/tag/python.html">python</a>
-        /
-	<a href="/tag/pelican.html">pelican</a>
+	<a href="/tag/network.html">network</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>You have to type</p>
+                <p>We need 2 machines, VM is fine, the first one ip are 10.0.0.5/10.0.1.5/10.0.2.5
+1. Create a network namespace for both companies</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span>:::identifier
-&lt;code goes here&gt;
-identifier can be python or language you want, example below in 
-pythons.
-:::
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns add mcdonalds
+ip netns add burgerking
 </pre></div>
 </td></tr></table>
 
-<p>with out the 3 spaces you can seperate the article.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="o">*</span>
+<ol>
+<li>Create veth pairs for both companies</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link add mdveth0 <span class="nb">type</span> veth peer name mdveth1
+ip link add bkveth0 <span class="nb">type</span> veth peer name bkveth1
+</pre></div>
+</td></tr></table>
 
-<span class="n">impossible</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;13&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;46&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;79&#39;</span><span class="p">:</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;17&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;28&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;39&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;19&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> 
-              <span class="s1">&#39;37&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;31&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;64&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;97&#39;</span><span class="p">:</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;71&#39;</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;82&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;93&#39;</span><span class="p">:</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;91&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
-              <span class="s1">&#39;73&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">}</span>
+<ol>
+<li>Add veth1 to each company's namespace</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> mdveth1 netns mcdonalds
+ip link <span class="nb">set</span> bkveth1 netns burgerking
+</pre></div>
+</td></tr></table>
 
-<span class="k">def</span> <span class="nf">counts</span><span class="p">():</span>
-    <span class="n">iterlst</span> <span class="o">=</span> <span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">permutations</span><span class="p">(</span><span class="s1">&#39;123456789&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span>
-    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterlst</span><span class="p">:</span>
-        <span class="n">stri</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">impossible</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">stri</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stri</span><span class="p">[:</span><span class="n">stri</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">k</span><span class="p">)]:</span>
-                <span class="k">break</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">count</span>
+<ol>
+<li>Add the same ip to veth1 in both company namespaces</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns <span class="nb">exec</span> mcdonalds ip a add dev mdveth1 10.1.0.5/24
+ip netns <span class="nb">exec</span> burgerking ip a add dev bkveth1 10.1.0.5/24
+</pre></div>
+</td></tr></table>
 
-<span class="k">print</span><span class="p">(</span><span class="n">counts</span><span class="p">())</span>
+<ol>
+<li>Create linux bridge for each</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addbr br-md
+brctl addbr br-bk
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Add a veth pair to linux bridge</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addif br-md mdveth0
+brctl addif br-bk bkveth0
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Create a point-topoint VXLAN interface for each company</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link add vxlan-10 <span class="nb">type</span> vxlan id <span class="m">10</span> remote 10.0.2.4 dev eth0
+ip link add vxlan-20 <span class="nb">type</span> vxlan id <span class="m">20</span> remote 10.0.2.4 dev eth0
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Use the -d flag with ip link to show the nic linked to the VXLAN interface:</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip -d link show vxlan-10
+ip -d link show vxlan-20
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Add the point to point VXlan to linux bridge</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>brctl addif br-md vxlan-10
+brctl addif br-bk vxlan-20
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Bring up the veth pairs:</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> dev mdveth0 up
+ip link <span class="nb">set</span> dev bkveth0 up
+ip netns <span class="nb">exec</span> mcdonalds ip link <span class="nb">set</span> dev mdveth1 up
+ip netns <span class="nb">exec</span> burgerking ip link <span class="nb">set</span> dev bkveth1 up
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Bring up the loopup for fun</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns <span class="nb">exec</span> mcdonalds ip link <span class="nb">set</span> dev lo up
+ip netns <span class="nb">exec</span> burgerking ip link <span class="nb">set</span> dev lo up
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Bring up each company's bridge</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> dev br-md up
+ip link <span class="nb">set</span> dev br-bk up
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>Bring up the VXLAN interface</li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip link <span class="nb">set</span> dev vxlan-10 up
+ip link <span class="nb">set</span> dev vxlan-20 up
+</pre></div>
+</td></tr></table>
+
+<p>Second node ip 10.0.0.4/10.0.1.4/10.0.2.4
+everything are the same except the 7 step, change the ip to node1's ip, then we can create a point to point connection.</p>
+<p>after all you can ping each other with in the vxlan, eg on node 2</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip netns <span class="nb">exec</span> mcdonalds ping 10.1.0.5
 </pre></div>
 </td></tr></table>
             </div>
