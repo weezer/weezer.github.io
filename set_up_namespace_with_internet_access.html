@@ -204,7 +204,7 @@ iptables -F FORWARD
 <span class="c1"># Flush nat rules.</span>
 iptables -t nat -F
 
-<span class="c1"># Enable masquerading of 10.200.1.0.</span>
+<span class="c1"># Enable masquerading of 192.168.0.0.</span>
 iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j MASQUERADE
 
 iptables -A FORWARD -i eth0 -o veth0 -j ACCEPT
