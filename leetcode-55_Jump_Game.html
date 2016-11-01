@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>leetcode - Weezer's BXJ</title>
+    <title>55. Jump Game - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,16 +11,23 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
+<link rel="canonical" href="/leetcode-55_Jump_Game.html">
 
-    <meta name="author" content="Weezer Su" />
-    <meta name="keywords" content="leetcode" />
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="code,python,leetcode" />
+        <meta name="description" content="Jump Game" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="55. Jump Game"/>
+        <meta property="og:url" content="/leetcode-55_Jump_Game.html"/>
+        <meta property="og:description" content="Jump Game"/>
+        <meta property="article:published_time" content="2016-10-31" />
+            <meta property="article:section" content="leetcode" />
+            <meta property="article:tag" content="code" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="leetcode" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -73,93 +80,76 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/leetcode-29_Divide_Two_Integers.html">29. Divide Two Integers</a></h2>
-                <div class="summary"><p>Divide Two Integers</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-29_Divide_Two_Integers.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-28_Implement_strStr.html">28. Implement strStr()</a></h2>
-                <div class="summary"><p>Implement strStr()</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-28_Implement_strStr.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-27_Remove_Element.html">27. Remove Element</a></h2>
-                <div class="summary"><p>Remove Element</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-27_Remove_Element.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-26_Remove_Duplicates_from_Sorted_Array.html">26. Remove Duplicates from Sorted Array</a></h2>
-                <div class="summary"><p>Remove Duplicates from Sorted Array</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-26_Remove_Duplicates_from_Sorted_Array.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-24_Swap_Nodes_in_Pairs.html">24. Swap Nodes in Pairs</a></h2>
-                <div class="summary"><p>Swap Nodes in Pairs</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-24_Swap_Nodes_in_Pairs.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-23_Merge_k_Sorted_Lists.html">23. Merge k Sorted Lists</a></h2>
-                <div class="summary"><p>Merge k Sorted Lists, using heap, two sorted list merge or similar merge sort for k-lists.</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-23_Merge_k_Sorted_Lists.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-22_Generate_Parentheses.html">22. Generate Parentheses</a></h2>
-                <div class="summary"><p>Generate Parentheses</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-22_Generate_Parentheses.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-21_Merge_Two_Sorted_Lists.html">21. Merge Two Sorted Lists</a></h2>
-                <div class="summary"><p>Merge Two Sorted Lists</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-21_Merge_Two_Sorted_Lists.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-20_Valid_Parentheses.html">20. Valid Parentheses</a></h2>
-                <div class="summary"><p>Valid Parentheses</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-20_Valid_Parentheses.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-19_Remove_Nth_Node_From_End_of_List.html">19. Remove Nth Node From End of List</a></h2>
-                <div class="summary"><p>Remove Nth Node From End of List</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-19_Remove_Nth_Node_From_End_of_List.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/leetcode-55_Jump_Game.html"
+                       rel="bookmark"
+                       title="Permalink to 55. Jump Game">
+                        55. Jump Game
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-10-31T22:47:00-05:00"> Mon 31 October 2016</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="/category/leetcode2.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="/category/leetcode.html">1</a></li>
-                    <li class=""><a
-                            href="/category/leetcode2.html">2</a></li>
-                    <li class="active"><a
-                            href="/category/leetcode3.html">3</a></li>
-                    <li class=""><a
-                            href="/category/leetcode4.html">4</a></li>
-                    <li class=""><a
-                            href="/category/leetcode5.html">5</a></li>
-                <li class="next"><a
-                        href="/category/leetcode4.html">&raquo;</a></li>
-        </ul>
+        <span class="label label-default">Category</span>
+        <a href="/category/leetcode.html">leetcode</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/code.html">code</a>
+        /
+	<a href="/tag/python.html">python</a>
+        /
+	<a href="/tag/leetcode.html">leetcode</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>渣渣</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">canJump</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">jump</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+            <span class="n">jump</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">jump</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">jump</span> <span class="o">&gt;=</span> <span class="n">length</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">if</span> <span class="n">jump</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
