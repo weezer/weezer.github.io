@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>openstack-ansible - Weezer's BXJ</title>
+    <title>How to deploy RPC with AIO multi node. - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,16 +11,22 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
+<link rel="canonical" href="/deploy_RPC_AIO_multinode.html">
 
-    <meta name="author" content="Weezer Su" />
-    <meta name="keywords" content="openstack-ansible" />
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="openstack,openstack-ansible" />
+        <meta name="description" content="Deploy RPC with AIO multi node on baremetal" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="How to deploy RPC with AIO multi node."/>
+        <meta property="og:url" content="/deploy_RPC_AIO_multinode.html"/>
+        <meta property="og:description" content="Deploy RPC with AIO multi node on baremetal"/>
+        <meta property="article:published_time" content="2016-11-02" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="openstack" />
+            <meta property="article:tag" content="openstack-ansible" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -56,7 +62,7 @@ Weezer's BXJ            </a>
                         <li >
                             <a href="/category/misc.html">Misc</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/tech.html">Tech</a>
                         </li>
             </ul>
@@ -73,13 +79,77 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/deploy_RPC_AIO_multinode.html">How to deploy RPC with AIO multi node.</a></h2>
-                <div class="summary"><p>Deploy RPC with AIO multi node on baremetal</p>
-                    <a class="btn btn-default btn-xs" href="/deploy_RPC_AIO_multinode.html">more ...</a>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/deploy_RPC_AIO_multinode.html"
+                       rel="bookmark"
+                       title="Permalink to How to deploy RPC with AIO multi node.">
+                        How to deploy RPC with AIO multi node.
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-11-02T17:35:00-05:00"> Wed 02 November 2016</time>
+    </span>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/tech.html">tech</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/openstack.html">openstack</a>
+        /
+	<a href="/tag/openstack-ansible.html">openstack-ansible</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                <p>we’d better backup the /etc/apt/source.lists before deployment, cuz the playbook will change it.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>1st, git clone https://github.com/rcbops-qe/openstack-ansible-ops
+Cd multi-node-aio
+RUN_OSA=false PARTITION_HOST=true OSA_BRANCH=stable/mitaka ./build.sh
+2nd, git clone —-recursive https://github.com/rcbops/rpc-openstack/
+Git checkout tags/r13.0.03 (or any tag u like)
+Git submodule update —recursive
+3rd, config the rpc settings. 
+cp -R openstack-ansible/etc/openstack_deploy /etc/openstack_deploy
+rm /etc/openstack_deploy/user_variables.yml 
+mv /etc/openstack_deploy/user_secrets.yml /etc/openstack_deploy/user_osa_secrets.yml
+cp rpcd/etc/openstack_deploy/user_*_defaults.yml /etc/openstack_deploy
+cp rpcd/etc/openstack_deploy/user_rpco_secrets.yml /etc/openstack_deploy
+cp rpcd/etc/openstack_deploy/env.d/* /etc/openstack_deploy/env.d
+DEPLOY_ELK=no
+DEPLOY_HARDENING=no
+DEPLOY_TEMPEST=yes
+./scripts/deploy.sh
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
