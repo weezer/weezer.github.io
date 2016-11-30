@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>code - Weezer's BXJ</title>
+    <title>78. Subsets - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,16 +11,23 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
+<link rel="canonical" href="/leetcode-78_Subsets.html">
 
-    <meta name="author" content="Weezer Su" />
-    <meta name="keywords" content="code" />
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="code,python,leetcode" />
+        <meta name="description" content="Subsets" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="78. Subsets"/>
+        <meta property="og:url" content="/leetcode-78_Subsets.html"/>
+        <meta property="og:description" content="Subsets"/>
+        <meta property="article:published_time" content="2016-11-30" />
+            <meta property="article:section" content="leetcode" />
+            <meta property="article:tag" content="code" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="leetcode" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -50,7 +57,7 @@ Weezer's BXJ            </a>
                          <li><a href="/pages/about-myself.html">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="/category/leetcode.html">Leetcode</a>
                         </li>
                         <li >
@@ -73,99 +80,81 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/leetcode-70_Climbing_Stairs.html">70. Climbing Stairs</a></h2>
-                <div class="summary"><p>Climbing Stairs</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-70_Climbing_Stairs.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/69-leetcode-Sqrt_x.html">69. Sqrt(x)</a></h2>
-                <div class="summary"><p>Sqrt(x)</p>
-                    <a class="btn btn-default btn-xs" href="/69-leetcode-Sqrt_x.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-67_Add_Binary.html">67. Add Binary</a></h2>
-                <div class="summary"><p>Add Binary</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-67_Add_Binary.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-66_Plus_One.html">66. Plus One</a></h2>
-                <div class="summary"><p>Plus One</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-66_Plus_One.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-64_Minimum_Path_Sum.html">64. Minimum Path Sum</a></h2>
-                <div class="summary"><p>Minimum Path Sum</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-64_Minimum_Path_Sum.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-63_Unique_Paths_II.html">63. Unique Paths II</a></h2>
-                <div class="summary"><p>Unique Paths II</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-63_Unique_Paths_II.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-62_Unique_Paths.html">62. Unique Paths</a></h2>
-                <div class="summary"><p>Unique Paths</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-62_Unique_Paths.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-61_Rotate_List.html">61. Rotate List</a></h2>
-                <div class="summary"><p>Rotate List</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-61_Rotate_List.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-60_Permutation_Sequence.html">60. Permutation Sequence</a></h2>
-                <div class="summary"><p>Permutation Sequence</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-60_Permutation_Sequence.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-58_Length_of_Last_Word.html">58. Length of Last Word</a></h2>
-                <div class="summary"><p>Length of Last Word</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-58_Length_of_Last_Word.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/leetcode-78_Subsets.html"
+                       rel="bookmark"
+                       title="Permalink to 78. Subsets">
+                        78. Subsets
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-11-30T14:24:00-06:00"> Wed 30 November 2016</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="/tag/code.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="/tag/code.html">1</a></li>
-                    <li class="active"><a
-                            href="/tag/code2.html">2</a></li>
-                    <li class=""><a
-                            href="/tag/code3.html">3</a></li>
-                    <li class=""><a
-                            href="/tag/code4.html">4</a></li>
-                    <li class=""><a
-                            href="/tag/code5.html">5</a></li>
-                    <li class=""><a
-                            href="/tag/code6.html">6</a></li>
-                    <li class=""><a
-                            href="/tag/code7.html">7</a></li>
-                    <li class=""><a
-                            href="/tag/code8.html">8</a></li>
-                <li class="next"><a
-                        href="/tag/code3.html">&raquo;</a></li>
-        </ul>
+        <span class="label label-default">Category</span>
+        <a href="/category/leetcode.html">leetcode</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/code.html">code</a>
+        /
+	<a href="/tag/python.html">python</a>
+        /
+	<a href="/tag/leetcode.html">leetcode</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">subsets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nums</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :type nums: List[int]</span>
+<span class="sd">        :rtype: List[List[int]]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="p">[[]]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ans</span><span class="p">[:]:</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="p">[:]</span>
+                <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="n">ans</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ans</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">Solution</span><span class="p">()</span>
+    <span class="k">print</span> <span class="n">s</span><span class="o">.</span><span class="n">subsets</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
