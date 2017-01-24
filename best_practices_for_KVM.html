@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Weezer's BXJ</title>
+    <title>Best practices for KVM - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,15 +11,22 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="">
-        <meta name="author" content="Weezer Su" />
+<link rel="canonical" href="/best_practices_for_KVM.html">
 
-    <!-- Open Graph tags -->
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="tech,openstack" />
+        <meta name="description" content="KVM tuning" />
+
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Best practices for KVM"/>
+        <meta property="og:url" content="/best_practices_for_KVM.html"/>
+        <meta property="og:description" content="KVM tuning"/>
+        <meta property="article:published_time" content="2017-01-24" />
+            <meta property="article:section" content="openstack" />
+            <meta property="article:tag" content="tech" />
+            <meta property="article:tag" content="openstack" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -55,7 +62,7 @@ Weezer's BXJ            </a>
                         <li >
                             <a href="/category/misc.html">Misc</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/openstack.html">Openstack</a>
                         </li>
                         <li >
@@ -75,101 +82,55 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/why_so_serious.html">Why So Serious</a></h2>
-                <div class="summary"><p>It's all a joke</p>
-                    <a class="btn btn-default btn-xs" href="/why_so_serious.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-50_Pow_x_n.html">50. Pow(x, n)</a></h2>
-                <div class="summary"><p>Pow(x, n)</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-50_Pow_x_n.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-49_Group_Anagrams.html">49. Group Anagrams</a></h2>
-                <div class="summary"><p>Group Anagrams</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-49_Group_Anagrams.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-48_Rotate_Image.html">48. Rotate Image</a></h2>
-                <div class="summary"><p>Rotate Image</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-48_Rotate_Image.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/vxlan_example_namespace_linux_bridge.html">VXLANs example with namespace and linux bridge</a></h2>
-                <div class="summary"><p>Try to seperate network connection by using vxlan</p>
-                    <a class="btn btn-default btn-xs" href="/vxlan_example_namespace_linux_bridge.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/set_up_namespace_with_internet_access.html">Setup a network namespace with internet access</a></h2>
-                <div class="summary"><p>Setup a network namespace with internet access.</p>
-                    <a class="btn btn-default btn-xs" href="/set_up_namespace_with_internet_access.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-47_Permutations_II.html">47. Permutations II</a></h2>
-                <div class="summary"><p>Permutations II</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-47_Permutations_II.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-46_Permutations.html">46. Permutations</a></h2>
-                <div class="summary"><p>Permutations</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-46_Permutations.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-43_Multiply_Strings.html">43. Multiply Strings</a></h2>
-                <div class="summary"><p>Multiply Strings</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-43_Multiply_Strings.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-42_Trapping_Rain_Water.html">42. Trapping Rain Water</a></h2>
-                <div class="summary"><p>Trapping Rain Water</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-42_Trapping_Rain_Water.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/best_practices_for_KVM.html"
+                       rel="bookmark"
+                       title="Permalink to Best practices for KVM">
+                        Best practices for KVM
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-01-24T16:23:00-06:00"> Tue 24 January 2017</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="/index4.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="/index.html">1</a></li>
-                    <li class=""><a
-                            href="/index2.html">2</a></li>
-                    <li class=""><a
-                            href="/index3.html">3</a></li>
-                    <li class=""><a
-                            href="/index4.html">4</a></li>
-                    <li class="active"><a
-                            href="/index5.html">5</a></li>
-                    <li class=""><a
-                            href="/index6.html">6</a></li>
-                    <li class=""><a
-                            href="/index7.html">7</a></li>
-                    <li class=""><a
-                            href="/index8.html">8</a></li>
-                    <li class=""><a
-                            href="/index9.html">9</a></li>
-                <li class="next"><a
-                        href="/index6.html">&raquo;</a></li>
-        </ul>
+        <span class="label label-default">Category</span>
+        <a href="/category/openstack.html">openstack</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/tech.html">tech</a>
+        /
+	<a href="/tag/openstack.html">openstack</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>好吧，其实我什么都干不了，摘抄几个链接过来。</p>
+<ol>
+<li><a href="https://www.ibm.com/support/knowledgecenter/linuxonibm/liaat/liaatbpkickoff.htm">IBM Best practices for KVM</a></li>
+<li>
+<p><a href="http://ops.anthonygoddard.com/OpenStack/openstack-local-lvm-instance-storage/">OpenStack Local LVM Instance Storage</a></p>
+<p><code>bash
+images_type=lvm
+libvirt_images_volume_group=nova_local</code></p>
+</li>
+<li>
+<p>mitaka开始，可以使用<code>preallocate_images = space</code> 来开启file 的aio native。<a href="https://github.com/dianaclarke/openstack-notes/wiki/aio">aio</a> </p>
+</li>
+</ol>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
