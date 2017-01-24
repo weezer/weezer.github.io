@@ -125,6 +125,9 @@ libvirt_images_volume_group=nova_local</code></p>
 <li>
 <p>mitaka开始，可以使用<code>preallocate_images = space</code> 来开启file 的aio native。<a href="https://github.com/dianaclarke/openstack-notes/wiki/aio">aio</a> </p>
 </li>
+<li>
+<p>还可以更改<code>l2-cache-size</code>, eg. <code>qemu-system-x86_64 -drive file=disk_image.qcow2,l2-cache-size=4194304,refcount-cache-size=262144</code>. <a href="https://blogs.igalia.com/berto/2015/12/17/improving-disk-io-performance-in-qemu-2-5-with-the-qcow2-l2-cache/">qemu img io performance</a>. openstack 还没有这个feature， 这里是<a href="https://blueprints.launchpad.net/nova/+spec/qcow2-l2-cache-size-configuration">blueprint</a></p>
+</li>
 </ol>
             </div>
             <!-- /.entry-content -->
