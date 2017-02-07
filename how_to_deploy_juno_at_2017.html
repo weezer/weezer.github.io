@@ -129,7 +129,11 @@ Weezer's BXJ            </a>
 14
 15
 16
-17</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/rcbops-qe/openstack-ansible-ops
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/rcbops-qe/openstack-ansible-ops
 cd multi-node-aio
 #the better run each task individually rather than just the build.sh
 RUN_OSA=false PARTITION_HOST=true OSA_BRANCH=stable/mitaka ./build.sh
@@ -143,7 +147,11 @@ git clone https://github.com/os-cloud/leapfrog-juno-config.git /etc/rpc_deploy
 #pre config the deploy host.
 ./opt/leapfrog-juno-playbooks/scripts/pre-juno-setup.sh
 #deploy the juno, HAproxy first
-cd /opt/leapfrog-juno-playbooks/rpc_deployment
+echo &quot;cd /opt/leapfrog-juno-playbooks/rpc_deployment&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;lxc_container_backing_store: dir&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+ehco &quot;tempest_public_subnet_cidr: 172.29.248.0/22&quot;  &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;neutron_l2_population: True&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;glance_default_store: swift &gt;&gt; /etc/rpc_deploy/user_variables.yml&quot;
 ansible-playbook playbooks/infrastructure/haproxy-install.yml playbooks/setup-everything.yml
 #GOOD LUCK
 </pre></div>
