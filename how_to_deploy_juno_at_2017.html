@@ -154,7 +154,7 @@ ehco &quot;tempest_public_subnet_cidr: 172.29.248.0/22&quot;  &gt;&gt; /etc/rpc_
 echo &quot;neutron_l2_population: True&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
 echo &quot;glance_default_store: swift &gt;&gt; /etc/rpc_deploy/user_variables.yml&quot;
 #Cange the container_create playbook, bdev to dir delete those lvm related parameters.
-ansible-playbook -e @/etc/rpc_deploy/user_vriable.yml playbooks/infrastructure/haproxy-install.yml playbooks/setup-everything.yml
+ansible-playbook -e @/etc/rpc_deploy/user_variables.yml playbooks/infrastructure/haproxy-install.yml playbooks/setup-everything.yml
 #GOOD LUCK
 </pre></div>
 </td></tr></table>
