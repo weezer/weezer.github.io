@@ -140,7 +140,7 @@ cd multi-node-aio
 RUN_OSA=false PARTITION_HOST=true OSA_BRANCH=stable/mitaka ./build.sh
 #downgrade the kernel of each VMs
 cd tools/
-KERNEL_VERSION=3.13.0-98 ./downgrade-all-VMs.sh
+KERNEL_VERSION=3.13.0-79 ./downgrade-all-VMs.sh
 #get the juno code
 git clone https://github.com/os-cloud/leapfrog-juno-playbooks.git /opt
 mkdir /etc/rpc_deploy
