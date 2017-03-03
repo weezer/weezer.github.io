@@ -113,24 +113,64 @@ Weezer's BXJ            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>先看一个方法的内部方法</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;p1: &quot;</span> <span class="o">+</span> <span class="n">name</span>
-    <span class="k">def</span> <span class="nf">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;p2 inside: &quot;</span> <span class="o">+</span> <span class="n">p1</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                <p>先来个返回值的例子</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">name</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">p1</span>
+
+<span class="n">p1</span><span class="p">(</span><span class="s2">&quot;weezer p1&quot;</span><span class="p">)</span>
+<span class="n">p3</span><span class="p">(</span><span class="s2">&quot;weezer p3&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">p3</span>
+<span class="n">p3</span> <span class="o">=</span> <span class="n">p1</span><span class="p">(</span><span class="s2">&quot;weezer&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">p3</span>
+
+<span class="c1">#output</span>
+<span class="n">weezer</span> <span class="n">p1</span>
+<span class="n">weezer</span> <span class="n">p3</span>
+<span class="o">&lt;</span><span class="n">function</span> <span class="n">p1</span> <span class="n">at</span> <span class="mh">0x10349a668</span><span class="o">&gt;</span>
+<span class="n">weezer</span>
+<span class="bp">None</span>
+</pre></div>
+</td></tr></table>
+
+<p>先看一个函数的内部函 
+其实就是把内部方法抛出</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>其实就是把内部方法抛出
+def p2(name):
+    def p1(name):
+        return &quot;p1: &quot; + name
+    def p2argument(name):
+        return &quot;p2 inside: &quot; + p1(name)
+    return p2argument(name)
 
 
-<span class="k">print</span> <span class="n">p2</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+print p2(&quot;hello&quot;)
 </pre></div>
 </td></tr></table>
 
@@ -155,7 +195,7 @@ Weezer's BXJ            </a>
 </pre></div>
 </td></tr></table>
 
-<p>所以装饰器其实就是把内部方法抛出同时你使用内部方法更改了目标方法的返回值。</p>
+<p>所以装饰器其实就是把内部函数抛出同时你使用内部函数更改了目标的返回值。</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
