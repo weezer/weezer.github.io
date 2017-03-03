@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Python Decorator in details - Weezer's BXJ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="/images/favicon.ico" rel="icon">
+
+<link rel="canonical" href="/python-decorator-2.html">
+
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="tricks,python" />
+        <meta name="description" content="ease to understand python decorator." />
+
+        <meta property="og:site_name" content="Weezer's BXJ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Python Decorator in details"/>
+        <meta property="og:url" content="/python-decorator-2.html"/>
+        <meta property="og:description" content="ease to understand python decorator."/>
+        <meta property="article:published_time" content="2017-03-03" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="tricks" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:author" content="Weezer Su" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.darkly.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Weezer's BXJ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-myself.html">
+                             About
+                          </a></li>
+                        <li >
+                            <a href="/category/leetcode.html">Leetcode</a>
+                        </li>
+                        <li >
+                            <a href="/category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="/category/openstack.html">Openstack</a>
+                        </li>
+                        <li class="active">
+                            <a href="/category/tech.html">Tech</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/python-decorator-2.html"
+                       rel="bookmark"
+                       title="Permalink to Python Decorator in details">
+                        Python Decorator in details
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-03T15:42:00-06:00"> Fri 03 March 2017</time>
+    </span>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/tech.html">tech</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/tricks.html">tricks</a>
+        /
+	<a href="/tag/python.html">python</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>先看一个方法的内部方法</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p1: &quot;</span> <span class="o">+</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p2 inside: &quot;</span> <span class="o">+</span> <span class="n">p1</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">print</span> <span class="n">p2</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>把他换个写法</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;p1: &quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p2 inside: &quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p2argument</span>
+
+<span class="k">print</span> <span class="n">p2</span><span class="p">(</span><span class="n">p1</span><span class="p">)(</span><span class="s2">&quot;weezer&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>所以装饰器其实就是把内部方法抛出同时你使用内部方法更改了目标方法的返回值。</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;p1&quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">p2i</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p2i&quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p2i</span>
+
+<span class="n">p3</span> <span class="o">=</span> <span class="n">p2</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">p3</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<span class="c1">#output p2ip1123</span>
+</pre></div>
+</td></tr></table>
+
+<h1>the below one is same as the above one.</h1>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">p2i</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p2i&quot;</span> <span class="o">+</span> <span class="n">func</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p2i</span>
+
+<span class="nd">@p2</span>
+<span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;p1&quot;</span> <span class="o">+</span> <span class="n">name</span>
+
+<span class="k">print</span> <span class="n">p1</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
+
+<p>关于 <code>from functools import wraps</code></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">print</span> <span class="n">p1</span><span class="o">.</span><span class="n">__name__</span>
+<span class="c1">#p1</span>
+</pre></div>
+</td></tr></table>
+
+<p>加入decorator</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">p2</span>
+
+<span class="nd">@p2</span>
+<span class="k">def</span> <span class="nf">p1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">print</span> <span class="n">p1</span><span class="p">()</span><span class="o">.</span><span class="n">__name__</span>
+<span class="c1">#p2</span>
+</pre></div>
+</td></tr></table>
+
+<p>加入wraps</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">p2i</span><span class="p">():</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">p2i</span>
+
+<span class="nd">@p2</span>
+<span class="k">def</span> <span class="nf">p1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="k">print</span> <span class="n">p1</span><span class="o">.</span><span class="n">__name__</span>
+<span class="c1">#p1</span>
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://www.linkedin.com/in/weezersu"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/weezer"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/code.html">
+                            code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/leetcode.html">
+                            leetcode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/openstack.html">
+                            openstack
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/python.html">
+                            python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/tech.html">
+                            tech
+                        </a>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Weezer Su
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
