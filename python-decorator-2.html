@@ -161,16 +161,16 @@ Weezer's BXJ            </a>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>其实就是把内部方法抛出
-def p2(name):
-    def p1(name):
-        return &quot;p1: &quot; + name
-    def p2argument(name):
-        return &quot;p2 inside: &quot; + p1(name)
-    return p2argument(name)
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="err">其实就是把内部方法抛出</span>
+<span class="k">def</span> <span class="nf">p2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">p1</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p1: &quot;</span> <span class="o">+</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;p2 inside: &quot;</span> <span class="o">+</span> <span class="n">p1</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p2argument</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 
-print p2(&quot;hello&quot;)
+<span class="k">print</span> <span class="n">p2</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
