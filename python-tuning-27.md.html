@@ -14,7 +14,7 @@
 <link rel="canonical" href="/python-tuning-27.md.html">
 
         <meta name="author" content="Weezer Su" />
-        <meta name="keywords" content="code,python,leetcode" />
+        <meta name="keywords" content="tricks,python" />
         <meta name="description" content="Python Tuning" />
 
         <meta property="og:site_name" content="Weezer's BXJ" />
@@ -23,10 +23,9 @@
         <meta property="og:url" content="/python-tuning-27.md.html"/>
         <meta property="og:description" content="Python Tuning"/>
         <meta property="article:published_time" content="2017-03-04" />
-            <meta property="article:section" content="leetcode" />
-            <meta property="article:tag" content="code" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="tricks" />
             <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="leetcode" />
             <meta property="article:author" content="Weezer Su" />
 
 
@@ -57,7 +56,7 @@ Weezer's BXJ            </a>
                          <li><a href="/pages/about-myself.html">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="/category/leetcode.html">Leetcode</a>
                         </li>
                         <li >
@@ -66,7 +65,7 @@ Weezer's BXJ            </a>
                         <li >
                             <a href="/category/openstack.html">Openstack</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/tech.html">Tech</a>
                         </li>
             </ul>
@@ -104,25 +103,23 @@ Weezer's BXJ            </a>
     </span>
 
         <span class="label label-default">Category</span>
-        <a href="/category/leetcode.html">leetcode</a>
+        <a href="/category/tech.html">tech</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="/tag/code.html">code</a>
+	<a href="/tag/tricks.html">tricks</a>
         /
 	<a href="/tag/python.html">python</a>
-        /
-	<a href="/tag/leetcode.html">leetcode</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>1.使用 Map ，Reduce 和 Filter 代替 for 循环
-2.校验 a in b， 字典 或 set 比 列表 或 元组 更好
-3.当数据量大的时候，尽可能使用不可变数据类型，他们更快 元组 &gt; 列表
-4.在一个列表中插入数据的复杂度为 O(n)
-5.如果你需要操作列表的两端，使用 deque
-6. list和set查找某一个元素的时间复杂度分别是O(n)和O(1)。
-7. 使用dict或set查找元素
+                <p>1.使用 Map ，Reduce 和 Filter 代替 for 循环</p>
+<p>2.校验 a in b， 字典 或 set 比 列表 或 元组 更好</p>
+<p>3.当数据量大的时候，尽可能使用不可变数据类型，他们更快 元组 &gt; 列表</p>
+<p>4.在一个列表中插入数据的复杂度为 O(n)</p>
+<p>5.如果你需要操作列表的两端，使用 deque</p>
+<p>6.list和set查找某一个元素的时间复杂度分别是O(n)和O(1)。</p>
+<p>7.使用dict或set查找元素
 python dict和set都是使用hash表来实现(类似c++11标准库中unordered_map)，查找元素的时间复杂度是O(1)</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -153,9 +150,7 @@ python dict和set都是使用hash表来实现(类似c++11标准库中unordered_m
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>合理使用生成器（generator）和yield.</li>
-</ol>
+<p>9.合理使用生成器（generator）和yield.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -205,10 +200,8 @@ python dict和set都是使用hash表来实现(类似c++11标准库中unordered_m
 </pre></div>
 </td></tr></table>
 
-<ol>
-<li>优化循环
-循环之外能做的事不要放在循环内，比如下面的优化可以快一倍</li>
-</ol>
+<p>10.优化循环
+循环之外能做的事不要放在循环内，比如下面的优化可以快一倍</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -246,8 +239,8 @@ python dict和set都是使用hash表来实现(类似c++11标准库中unordered_m
 </td></tr></table>
 
 <p>12.使用join合并迭代器中的字符串
-join对于累加的方式，有大约5倍的提升。
-13.不借助中间变量交换两个变量的值</p>
+join对于累加的方式，有大约5倍的提升。</p>
+<p>13.不借助中间变量交换两个变量的值</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span>
 <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">a</span>
