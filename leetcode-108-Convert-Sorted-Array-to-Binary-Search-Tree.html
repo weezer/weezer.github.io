@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>python - Weezer's BXJ</title>
+    <title>108. Convert Sorted Array to Binary Search Tree - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,16 +11,23 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
+<link rel="canonical" href="/leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree.html">
 
-    <meta name="author" content="Weezer Su" />
-    <meta name="keywords" content="python" />
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="code,python,leetcode" />
+        <meta name="description" content="Convert Sorted Array to Binary Search Tree" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="108. Convert Sorted Array to Binary Search Tree"/>
+        <meta property="og:url" content="/leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree.html"/>
+        <meta property="og:description" content="Convert Sorted Array to Binary Search Tree"/>
+        <meta property="article:published_time" content="2017-03-11" />
+            <meta property="article:section" content="leetcode" />
+            <meta property="article:tag" content="code" />
+            <meta property="article:tag" content="python" />
+            <meta property="article:tag" content="leetcode" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -50,7 +57,7 @@ Weezer's BXJ            </a>
                          <li><a href="/pages/about-myself.html">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="/category/leetcode.html">Leetcode</a>
                         </li>
                         <li >
@@ -76,107 +83,82 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/leetcode-58_Length_of_Last_Word.html">58. Length of Last Word</a></h2>
-                <div class="summary"><p>Length of Last Word</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-58_Length_of_Last_Word.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-57_Insert_Intervals.html">57. Insert Interval</a></h2>
-                <div class="summary"><p>Insert Interval</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-57_Insert_Intervals.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-56_Merge_Intervals.html">56. Merge Intervals</a></h2>
-                <div class="summary"><p>Merge Intervals</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-56_Merge_Intervals.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-55_Jump_Game.html">55. Jump Game</a></h2>
-                <div class="summary"><p>Jump Game</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-55_Jump_Game.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-54_Spiral_Matrix.html">54. Spiral Matrix</a></h2>
-                <div class="summary"><p>Spiral Matrix</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-54_Spiral_Matrix.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-51_N-Queens.html">51. N-Queens</a></h2>
-                <div class="summary"><p>N-Queens</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-51_N-Queens.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-53_Maximum_Subarray.md.html">53. Maximum Subarray</a></h2>
-                <div class="summary"><p>Maximum Subarray</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-53_Maximum_Subarray.md.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/Median_of_Two_Sorted_Arrays.html">4. Median of Two Sorted Arrays</a></h2>
-                <div class="summary"><p>Median of Two Sorted Arrays</p>
-                    <a class="btn btn-default btn-xs" href="/Median_of_Two_Sorted_Arrays.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-50_Pow_x_n.html">50. Pow(x, n)</a></h2>
-                <div class="summary"><p>Pow(x, n)</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-50_Pow_x_n.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-49_Group_Anagrams.html">49. Group Anagrams</a></h2>
-                <div class="summary"><p>Group Anagrams</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-49_Group_Anagrams.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/leetcode-108-Convert-Sorted-Array-to-Binary-Search-Tree.html"
+                       rel="bookmark"
+                       title="Permalink to 108. Convert Sorted Array to Binary Search Tree">
+                        108. Convert Sorted Array to Binary Search Tree
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-11T01:41:51-06:00"> Sat 11 March 2017</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="/tag/python6.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="/tag/python.html">1</a></li>
-                    <li class=""><a
-                            href="/tag/python2.html">2</a></li>
-                    <li class=""><a
-                            href="/tag/python3.html">3</a></li>
-                    <li class=""><a
-                            href="/tag/python4.html">4</a></li>
-                    <li class=""><a
-                            href="/tag/python5.html">5</a></li>
-                    <li class=""><a
-                            href="/tag/python6.html">6</a></li>
-                    <li class="active"><a
-                            href="/tag/python7.html">7</a></li>
-                    <li class=""><a
-                            href="/tag/python8.html">8</a></li>
-                    <li class=""><a
-                            href="/tag/python9.html">9</a></li>
-                    <li class=""><a
-                            href="/tag/python10.html">10</a></li>
-                    <li class=""><a
-                            href="/tag/python11.html">11</a></li>
-                    <li class=""><a
-                            href="/tag/python12.html">12</a></li>
-                <li class="next"><a
-                        href="/tag/python8.html">&raquo;</a></li>
-        </ul>
+        <span class="label label-default">Category</span>
+        <a href="/category/leetcode.html">leetcode</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/code.html">code</a>
+        /
+	<a href="/tag/python.html">python</a>
+        /
+	<a href="/tag/leetcode.html">leetcode</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>```python</p>
+<h1>Definition for a binary tree node.</h1>
+<p>class TreeNode(object):
+    def <strong>init</strong>(self, x):
+        self.val = x
+        self.left = None
+        self.right = None</p>
+<p>class Solution(object):
+    def sortedArrayToBST(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: TreeNode
+        """
+        nums_len = len(nums)
+        if nums_len == 0:
+            return None
+        root = TreeNode(nums[nums_len/2])
+        root.left = self.sortedArrayToBST(nums[:nums_len/2])
+        root.right = self.sortedArrayToBST(nums[(nums_len/2)+1:])
+        return root</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span>def inorder(self, root):
+    if root.left:
+        self.inorder(root.left)
+    print root.val
+    if root.right:
+        self.inorder(root.right)
+</pre></div>
+</td></tr></table>
+
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    s = Solution()
+    head = s.sortedArrayToBST([1,2,3,4,5,6,7,8])
+    s.inorder(head)```</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
