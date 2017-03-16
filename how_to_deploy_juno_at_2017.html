@@ -162,6 +162,56 @@ ansible-playbook -e @/etc/rpc_deploy/user_variables.yml playbooks/infrastructure
 #GOOD LUCK
 </pre></div>
 </td></tr></table>
+
+<h2>update</h2>
+<p>We dont need to care about the eth12 because we dont need to use the FLAT network, thats a known issue for openstack neutron, not osad's issue.</p>
+<h2>What i have changed?</h2>
+<ol>
+<li>the enviroment_version of rpc_user_config.yml. <a href="https://github.com/weezer/juno-rpc-config/commit/12c5b05e8bd0348f7f6e2004909745e1504c364c">link</a></li>
+<li>the cinder_volumes_container set to is_metal. <a href="https://github.com/weezer/juno-rpc-config/blob/492ae1df34a9a70722e9ffb426fdab6d5b443cfc/rpc_environment.yml#L138">link</a></li>
+<li>add libxml2=2.9.1+dfsg1-3ubuntu4.8 to rpc_deployment/inventory/group_vars/all.yml. <a href="https://github.com/weezer/leapfrog-juno-playbooks/commit/8cbdb8f22f2c4b5a3bf082a9aef85dbdded6488d">link</a></li>
+<li>add force:yes to repos.yml. <a href="https://github.com/weezer/leapfrog-juno-playbooks/commit/e914ddeb31ba691627538d79327ca0e73c4e2f87">ilink</a></li>
+<li>change the container bdev from "lvm" to "dir". <a href="https://github.com/weezer/leapfrog-juno-playbooks/commit/b50862bdb9cfea14c64f56a69a6a126efb895edf">link</a></li>
+</ol>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span>git clone https://github.com/rcbops-qe/openstack-ansible-ops
+cd multi-node-aio
+#the better run each task individually rather than just the build.sh
+DEFAULT_KERNEL=3.13.0-79 RUN_OSA=false PARTITION_HOST=true OSA_BRANCH=stable/mitaka ./build.sh
+#get the juno code
+git clone https://github.com/weezer/leapfrog-juno-playbooks.git /opt
+mkdir /etc/rpc_deploy
+git clone https://github.com/weezer/leapfrog-juno-config.git /etc/rpc_deploy
+#pre config the deploy host.
+./opt/leapfrog-juno-playbooks/scripts/pre-juno-setup.sh
+#deploy the juno, HAproxy first
+echo &quot;cd /opt/leapfrog-juno-playbooks/rpc_deployment&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;lxc_container_backing_store: dir&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+ehco &quot;tempest_public_subnet_cidr: 172.29.248.0/22&quot;  &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;neutron_l2_population: True&quot; &gt;&gt; /etc/rpc_deploy/user_variables.yml
+echo &quot;glance_default_store: swift &gt;&gt; /etc/rpc_deploy/user_variables.yml&quot;
+#Cange the container_create playbook, bdev to dir delete those lvm related parameters.
+ansible-playbook -e @/etc/rpc_deploy/user_variables.yml playbooks/infrastructure/haproxy-install.yml playbooks/setup-everything.yml
+#GOOD LUCK
+</pre></div>
+</td></tr></table>
             </div>
             <!-- /.entry-content -->
         </article>
