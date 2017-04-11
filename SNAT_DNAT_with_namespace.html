@@ -137,12 +137,14 @@ Weezer's BXJ            </a>
 24
 25
 26
-27</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip add netns ns1
+27
+28
+29</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ip add netns ns1
 ip add netns ns2
 ip add netns router
 
-ip add ip link add veth0 type veth peer name peer0
-ip add ip link add veth1 type veth peer name peer1
+ip link add veth0 type veth peer name peer0
+ip link add veth1 type veth peer name peer1
 
 ip link set dev veth0 netns ns1
 ip link set dev veth1 netns ns2
@@ -161,9 +163,11 @@ ip netns exec ns2 route add default gw 192.168.1.2 dev veth1
 
 #adding iptables snat and dnat
 
+iptables -A PREROUTING -t nat -p icmp -d 10.0.0.99 -j DNAT --to 192.168.1.1
 
-iptables -A PREROUTING -t nat -p icmp -s 10.0.0.99 -j DNAT --to 192.168.1.1
 iptables -A POSTROUTING -t nat -p icmp -s 192.168.0.1 -j SNAT --to 10.0.0.99
+#or
+iptables -t nat -A POSTROUTING -j MASQUERADE
 </pre></div>
 </td></tr></table>
             </div>
