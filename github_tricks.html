@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>Some git tricks - Weezer's BXJ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="/images/favicon.ico" rel="icon">
+
+<link rel="canonical" href="/github_tricks.html">
+
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="tech,tricks" />
+        <meta name="description" content="some very useful hits when you are using git" />
+
+        <meta property="og:site_name" content="Weezer's BXJ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Some git tricks"/>
+        <meta property="og:url" content="/github_tricks.html"/>
+        <meta property="og:description" content="some very useful hits when you are using git"/>
+        <meta property="article:published_time" content="2017-08-01" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="tech" />
+            <meta property="article:tag" content="tricks" />
+            <meta property="article:author" content="Weezer Su" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="/theme/css/bootstrap.darkly.min.css" type="text/css"/>
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="/theme/css/style.css" type="text/css"/>
+
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">
+Weezer's BXJ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="/pages/about-myself.html">
+                             About
+                          </a></li>
+                        <li >
+                            <a href="/category/leetcode.html">Leetcode</a>
+                        </li>
+                        <li >
+                            <a href="/category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="/category/openstack.html">Openstack</a>
+                        </li>
+                        <li >
+                            <a href="/category/python.html">Python</a>
+                        </li>
+                        <li class="active">
+                            <a href="/category/tech.html">Tech</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/github_tricks.html"
+                       rel="bookmark"
+                       title="Permalink to Some git tricks">
+                        Some git tricks
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-08-01T00:00:00-05:00"> Tue 01 August 2017</time>
+    </span>
+
+        <span class="label label-default">Category</span>
+        <a href="/category/tech.html">tech</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/tech.html">tech</a>
+        /
+	<a href="/tag/tricks.html">tricks</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h1>Use a file from another branch</h1>
+<p>Sometimes you just need one file from another branch. Sure you could <code>git
+cherry-pick</code> but then you're dealing with commits. That sort of thing gets
+sticky fast; don't go there.</p>
+<p>The best way is to use your old pal <code>git checkout</code>. Just make sure you're
+on the branch you want to bring the file into and then checkout the file
+from its source branch. Here's the syntax.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git checkout my-awesome-source-branch the/path/to/yourfile.rad
+</pre></div>
+</td></tr></table>
+
+<p>That's it – enjoy.</p>
+<h1>Two ways of squashing commits</h1>
+<p>It is handy to squash down your commits before merging your PR with
+<code>my-new-cool-feature</code>. You can either squash them down by doing an interactive
+rebase like so:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git checkout my-new-cool-feature
+$ git rebase -i master
+</pre></div>
+</td></tr></table>
+
+<p>This will open up your <code>$EDITOR</code> of choice and you are free to pick and choose
+which commits to squash together.</p>
+<p>This might be tedious if you have a big number of commits to squash together.
+Very tedious. TIL that you can use <code>git merge</code> to squash your commits, all in
+one go.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git checkout master
+$ git merge --squash my-cool-new-feature
+</pre></div>
+</td></tr></table>
+
+<p>This will leave all of your changes staged on <code>master</code>, ready to be committed as
+one.</p>
+<h1>Split Up a Commit, Rewrite History</h1>
+<p>When working on a branch with multiple commits, you can "go back in time" and revise previous commits any way you please.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git rebase -i origin/master
+</pre></div>
+</td></tr></table>
+
+<p>This command will prompt you inside of your <code>$VISUAL</code> with a series of commit SHAs and commit titles</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span># ...
+pick ed1ff41 Move templates
+pick 274ac0e Move components &amp; views
+# ...
+</pre></div>
+</td></tr></table>
+
+<p>To split up <code>274ac0e</code>, replace <code>pick</code> with <code>edit</code> and save the buffer.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span># ...
+pick ed1ff41 Move templates
+edit 274ac0e Move components &amp; views
+# ...
+</pre></div>
+</td></tr></table>
+
+<p>You are now detached from the <code>HEAD</code> of your branch and "back in time".
+To split up the current commit (<code>274ac0e</code>):</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git reset HEAD~
+</pre></div>
+</td></tr></table>
+
+<p>This will unstage all files within the commit.
+Next, split up the commit any way you'd like.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git add app/views
+$ git commit -m <span class="s2">&quot;Move views&quot;</span>
+$ git add app/components
+$ git commit -m <span class="s2">&quot;Move components&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<p>When you're finished, continue the rebase.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git rebase --continue
+</pre></div>
+</td></tr></table>
+
+<p>If you introduced merge conflicts down the line, you'll have to resolve them.
+If all went well, your branch's history will be re-written.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git log origin/master..
+
+<span class="c1"># ...</span>
+ed1ff41 Move templates
+7b84a01 Move views
+274ac0e Move components
+<span class="c1"># ...</span>
+</pre></div>
+</td></tr></table>
+
+<p>Keep in mind that you might have to force push your branch to <code>origin</code>,
+depending on whether or not your revised commits have been pushed.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span>$ git push origin my-branch-name --force
+</pre></div>
+</td></tr></table>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://www.linkedin.com/in/weezersu"><i class="fa fa-linkedin-square fa-lg"></i> linkedin</a></li>
+                <li class="list-group-item"><a href="https://github.com/weezer"><i class="fa fa-github-square fa-lg"></i> github</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/code.html">
+                            code
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/leetcode.html">
+                            leetcode
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/misc.html">
+                            misc
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/network.html">
+                            network
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/openstack.html">
+                            openstack
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/openstack-ansible.html">
+                            openstack-ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/python.html">
+                            python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/tech.html">
+                            tech
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="/tag/tricks.html">
+                            tricks
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="/tag/pelican.html">
+                            pelican
+                        </a>
+                    </li>
+                </ul>
+            </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Weezer Su
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
