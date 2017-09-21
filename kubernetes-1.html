@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Weezer's BXJ</title>
+    <title>What's the difference between ClusterIP, NodePort and LoadBalancer service types in Kubernetes? - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,15 +11,22 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="">
-        <meta name="author" content="Weezer Su" />
+<link rel="canonical" href="/kubernetes-1.html">
 
-    <!-- Open Graph tags -->
+        <meta name="author" content="Weezer Su" />
+        <meta name="keywords" content="tech,kubernetes" />
+        <meta name="description" content="ClusterIP, NodePort, LoadBalancer" />
+
         <meta property="og:site_name" content="Weezer's BXJ" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Weezer's BXJ"/>
-        <meta property="og:url" content=""/>
-        <meta property="og:description" content="Weezer's BXJ"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="What&#39;s the difference between ClusterIP, NodePort and LoadBalancer service types in Kubernetes?"/>
+        <meta property="og:url" content="/kubernetes-1.html"/>
+        <meta property="og:description" content="ClusterIP, NodePort, LoadBalancer"/>
+        <meta property="article:published_time" content="2017-09-21" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="tech" />
+            <meta property="article:tag" content="kubernetes" />
+            <meta property="article:author" content="Weezer Su" />
 
 
     <!-- Bootstrap -->
@@ -61,7 +68,7 @@ Weezer's BXJ            </a>
                         <li >
                             <a href="/category/python.html">Python</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/tech.html">Tech</a>
                         </li>
             </ul>
@@ -78,131 +85,56 @@ Weezer's BXJ            </a>
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="/leetcode-114-Flatten-Binary-Tree-to-Linked-List.html">114. Flatten Binary Tree to Linked List</a></h2>
-                <div class="summary"><ol>
-<li>Flatten Binary Tree to Linked List</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-114-Flatten-Binary-Tree-to-Linked-List.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-113-Path-Sum-II.html">113. Path Sum II</a></h2>
-                <div class="summary"><ol>
-<li>Path Sum II</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-113-Path-Sum-II.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-112-Path-Sum.html">112. Path Sum</a></h2>
-                <div class="summary"><ol>
-<li>Path Sum</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-112-Path-Sum.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-111-Minimum-Depth-of-Binary-Tree.html">111. Minimum Depth of Binary Tree</a></h2>
-                <div class="summary"><ol>
-<li>Minimum Depth of Binary Tree</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-111-Minimum-Depth-of-Binary-Tree.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-110-Balanced-Binary-Tree.html">110. Balanced Binary Tree</a></h2>
-                <div class="summary"><ol>
-<li>Balanced Binary Tree</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-110-Balanced-Binary-Tree.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-109-Convert-Sorted-List-to-Binary-Search-Tree.html">109. Convert Sorted List to Binary Search Tree</a></h2>
-                <div class="summary"><ol>
-<li>Convert Sorted List to Binary Search Tree</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-109-Convert-Sorted-List-to-Binary-Search-Tree.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/some_favorite_youtube_music.html">Some music</a></h2>
-                <div class="summary"><p>Save some music links at here</p>
-                    <a class="btn btn-default btn-xs" href="/some_favorite_youtube_music.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-377-Combination-Sum-IV.html">377. Combination Sum IV</a></h2>
-                <div class="summary"><ol>
-<li>Combination Sum IV</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-377-Combination-Sum-IV.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-ball_combinatic.html">ball_combinatic</a></h2>
-                <div class="summary"><p>ball_combinatic</p>
-                    <a class="btn btn-default btn-xs" href="/leetcode-ball_combinatic.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="/leetcode-148-Sort-List.html">148. Sort List</a></h2>
-                <div class="summary"><ol>
-<li>Sort List</li>
-</ol>
-                    <a class="btn btn-default btn-xs" href="/leetcode-148-Sort-List.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="/kubernetes-1.html"
+                       rel="bookmark"
+                       title="Permalink to What's the difference between ClusterIP, NodePort and LoadBalancer service types in Kubernetes?">
+                        What's the difference between ClusterIP, NodePort and LoadBalancer service types in Kubernetes?
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-09-21T15:04:00-05:00"> Thu 21 September 2017</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="/index2.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="/index.html">1</a></li>
-                    <li class=""><a
-                            href="/index2.html">2</a></li>
-                    <li class="active"><a
-                            href="/index3.html">3</a></li>
-                    <li class=""><a
-                            href="/index4.html">4</a></li>
-                    <li class=""><a
-                            href="/index5.html">5</a></li>
-                    <li class=""><a
-                            href="/index6.html">6</a></li>
-                    <li class=""><a
-                            href="/index7.html">7</a></li>
-                    <li class=""><a
-                            href="/index8.html">8</a></li>
-                    <li class=""><a
-                            href="/index9.html">9</a></li>
-                    <li class=""><a
-                            href="/index10.html">10</a></li>
-                    <li class=""><a
-                            href="/index11.html">11</a></li>
-                    <li class=""><a
-                            href="/index12.html">12</a></li>
-                    <li class=""><a
-                            href="/index13.html">13</a></li>
-                    <li class=""><a
-                            href="/index14.html">14</a></li>
-                    <li class=""><a
-                            href="/index15.html">15</a></li>
-                    <li class=""><a
-                            href="/index16.html">16</a></li>
-                <li class="next"><a
-                        href="/index4.html">&raquo;</a></li>
-        </ul>
+        <span class="label label-default">Category</span>
+        <a href="/category/tech.html">tech</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="/tag/tech.html">tech</a>
+        /
+	<a href="/tag/kubernetes.html">kubernetes</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>A ClusterIP exposes the following:</p>
+<p><code>spec.clusterIp:spec.ports[*].port</code></p>
+<p>You can only access this service while inside the cluster. It is accessible from its spec.clusterIp port. If a spec.ports[*].targetPort is set it will route from the port to the targetPort. The CLUSTER-IP you get when calling kubectl get services is the IP assigned to this service within the cluster internally.</p>
+<p>A NodePort exposes the following:</p>
+<p><code>&lt;NodeIP&gt;:spec.ports[*].nodePort
+spec.clusterIp:spec.ports[*].port</code>
+If you access this service on a nodePort from the node's external IP, it will route the request to spec.clusterIp:spec.ports[<em>].port, which will in turn route it to your spec.ports[</em>].targetPort, if set. This service can also be accessed in the same way as ClusterIP.</p>
+<p>Your NodeIPs are the external IP addresses of the nodes. You cannot access your service from <ClusterIP>:spec.ports[*].nodePort.</p>
+<p>A LoadBalancer exposes the following:</p>
+<p><code>spec.loadBalancerIp:spec.pops[*].port
+&lt;NodeIP&gt;:spec.ports[*].nodePort
+spec.clusterIp:spec.ports[*].port</code>
+You can access this service from your load balancer's IP address, which routes your request to a nodePort, which in turn routes the request to the clusterIP port. You can access this service as you would a NodePort or a ClusterIP service as well.</p>
+<p>in my case, <code>ssh -i id_rsa_core -L 4443:10.3.178.15:443 core@172.99.77.15</code> then i can open the webpage on brower by localhost:4443 to verify that within the same cluster you do can reach the service by clusterIP:port </p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
