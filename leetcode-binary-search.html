@@ -199,7 +199,7 @@ Weezer's BXJ            </a>
             <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">l</span>
 
-<span class="c1"># with duplicate elements, If L &lt; n and AL = T, then AL is the leftmost element that equals T.</span>
+<span class="c1"># with duplicate elements, If L &lt; n and A[L] = T, then AL is the leftmost element that equals T.</span>
 <span class="c1"># Even if T is not in the array, L is the rank of T in the array,</span>
 <span class="c1"># or the number of elements in the array that are less than T.</span>
 
@@ -215,7 +215,7 @@ Weezer's BXJ            </a>
             <span class="n">r</span> <span class="o">=</span> <span class="n">mid</span>
     <span class="k">return</span> <span class="n">l</span>
 
-<span class="c1"># If L &gt; 0 and AL - 1 = T, then AL - 1 is the rightmost element that equals T.</span>
+<span class="c1"># If L &gt; 0 and A[L - 1] = T, then A[L - 1] is the rightmost element that equals T.</span>
 <span class="c1"># Even if T is not in the array, n - (L - 1) is the number of elements in the array that are greater than T.</span>
 
 
@@ -232,6 +232,11 @@ Weezer's BXJ            </a>
     <span class="k">return</span> <span class="n">l</span> <span class="o">-</span> <span class="mi">1</span>
 </pre></div>
 </td></tr></table>
+
+<p>Rank queries can be performed with the procedure for finding the leftmost element must be used. The number of elements less than the target value is returned by the procedure.
+Predecessor queries can be performed with rank queries. If the rank of the target value is r, its predecessor is r − 1.[12]
+For successor queries, the procedure for finding the rightmost element can be used. If the result of running the procedure for the target value is r, then the successor of the target value is r + 1.
+The nearest neighbor of the target value is either its predecessor or successor, whichever is closer.</p>
             </div>
             <!-- /.entry-content -->
         </article>
