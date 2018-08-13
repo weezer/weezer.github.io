@@ -171,7 +171,10 @@ Weezer's BXJ            </a>
 50
 51
 52
-53</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+53
+54
+55
+56</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
     <span class="k">while</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">r</span><span class="p">:</span>
         <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
@@ -200,6 +203,7 @@ Weezer's BXJ            </a>
 <span class="c1"># Even if T is not in the array, L is the rank of T in the array,</span>
 <span class="c1"># or the number of elements in the array that are less than T.</span>
 
+<span class="c1"># equals to bisect.bisect_leftmost()</span>
 
 <span class="k">def</span> <span class="nf">binary_search_leftmost</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
@@ -214,6 +218,8 @@ Weezer's BXJ            </a>
 <span class="c1"># If L &gt; 0 and AL - 1 = T, then AL - 1 is the rightmost element that equals T.</span>
 <span class="c1"># Even if T is not in the array, n - (L - 1) is the number of elements in the array that are greater than T.</span>
 
+
+<span class="c1">#equals to bisect.bisect()</span>
 
 <span class="k">def</span> <span class="nf">binary_search_rightmost</span><span class="p">(</span><span class="n">nums</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="n">l</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
