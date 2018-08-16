@@ -134,6 +134,8 @@ Weezer's BXJ            </a>
 <p>Ideally, you want all your OSDs to be the same in terms of thoroughput and capacity...but this isn't always possible. When your OSDs differ in their key attributes, use ceph osd crush reweight to modify their weights in the CRUSH map so that the cluster is properly balanced and OSDs of different types receive an appropriately-adjusted number of I/O requests and data.</p>
 <h2>10. List cluster keys: ceph auth list</h2>
 <p>Ceph uses keyrings to store one or more Ceph authentication keys and capability specifications. The ceph auth list command provides an easy way to to keep track of keys and capabilities</p>
+<p>eg:
+if you want to use another use with ceph cmd, try to copy the keyring to the /etc/ceph, and export CEPH_ARGS="--name client.openstack"</p>
             </div>
             <!-- /.entry-content -->
         </article>
