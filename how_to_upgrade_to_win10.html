@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>03. Longest Substring Without Repeating Characters - Weezer's BXJ</title>
+    <title>How to upgrade to Win10 - Weezer's BXJ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,22 +11,20 @@
 
     <link href="/images/favicon.ico" rel="icon">
 
-<link rel="canonical" href="/leetcode-3-Longest_Substring_Without_Repeating_Characters.html">
+<link rel="canonical" href="/how_to_upgrade_to_win10.html">
 
         <meta name="author" content="Weezer Su" />
-        <meta name="keywords" content="code,python,leetcode" />
-        <meta name="description" content="3rd question on leetcode" />
+        <meta name="keywords" content="tech" />
+        <meta name="description" content="how to upgrade to win10" />
 
         <meta property="og:site_name" content="Weezer's BXJ" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="03. Longest Substring Without Repeating Characters"/>
-        <meta property="og:url" content="/leetcode-3-Longest_Substring_Without_Repeating_Characters.html"/>
-        <meta property="og:description" content="3rd question on leetcode"/>
-        <meta property="article:published_time" content="2016-09-14" />
-            <meta property="article:section" content="leetcode" />
-            <meta property="article:tag" content="code" />
-            <meta property="article:tag" content="python" />
-            <meta property="article:tag" content="leetcode" />
+        <meta property="og:title" content="How to upgrade to Win10"/>
+        <meta property="og:url" content="/how_to_upgrade_to_win10.html"/>
+        <meta property="og:description" content="how to upgrade to win10"/>
+        <meta property="article:published_time" content="2019-02-22" />
+            <meta property="article:section" content="tech" />
+            <meta property="article:tag" content="tech" />
             <meta property="article:author" content="Weezer Su" />
 
 
@@ -57,7 +55,7 @@ Weezer's BXJ            </a>
                          <li><a href="/pages/about-myself.html">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="/category/leetcode.html">Leetcode</a>
                         </li>
                         <li >
@@ -72,7 +70,7 @@ Weezer's BXJ            </a>
                         <li >
                             <a href="/category/python.html">Python</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="/category/tech.html">Tech</a>
                         </li>
             </ul>
@@ -93,10 +91,10 @@ Weezer's BXJ            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="/leetcode-3-Longest_Substring_Without_Repeating_Characters.html"
+                    <a href="/how_to_upgrade_to_win10.html"
                        rel="bookmark"
-                       title="Permalink to 03. Longest Substring Without Repeating Characters">
-                        03. Longest Substring Without Repeating Characters
+                       title="Permalink to How to upgrade to Win10">
+                        How to upgrade to Win10
                     </a>
                 </h1>
             </header>
@@ -106,63 +104,21 @@ Weezer's BXJ            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-09-14T21:16:00-05:00"> Wed 14 September 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2019-02-22T00:00:00-06:00"> Fri 22 February 2019</time>
     </span>
 
         <span class="label label-default">Category</span>
-        <a href="/category/leetcode.html">leetcode</a>
+        <a href="/category/tech.html">tech</a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="/tag/code.html">code</a>
-        /
-	<a href="/tag/python.html">python</a>
-        /
-	<a href="/tag/leetcode.html">leetcode</a>
+	<a href="/tag/tech.html">tech</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">lengthOfLongestSubstring</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        :type s: str</span>
-<span class="sd">        :rtype: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">maxl</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
-                <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">ls</span> <span class="o">=</span> <span class="n">ls</span><span class="p">[</span><span class="n">ls</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-                <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">length</span> <span class="o">&gt;</span> <span class="n">maxl</span><span class="p">:</span>
-                    <span class="n">maxl</span> <span class="o">=</span> <span class="n">length</span>
-        <span class="k">return</span> <span class="n">maxl</span>
-</pre></div>
-</td></tr></table>
+                <p>Just list steps</p>
+<p>dowload this tool to your windows7 then run, and all set
+http://download.microsoft.com/download/0/4/7/047889D0-578C-4A44-A38F-7F30A6CB3809/current-version/Windows10Upgrade9194.exe</p>
             </div>
             <!-- /.entry-content -->
         </article>
