@@ -1,8 +1,5 @@
 body {
     padding-top: 70px;
-    font-family : font-awesome; 
-    font-size : 170% ;
-    color : #faebd7 ;
 }
 
 #sidebar .list-group, #sidebar .list-group-item {
@@ -223,26 +220,4 @@ figure.floatcenter, .align-center {
     #banner .intro{
         font-size: 16px;
     }
-}
-
-ul.tagcloud {
-  list-style: none;
-    padding: 0;
-}
-
-ul.tagcloud li {
-    display: inline-block;
-}
-
-li.tag-1 {
-    font-size: 150%;
-}
-
-li.tag-2 {
-    font-size: 120%;
-}
-
-ul.tagcloud .list-group-item <span>.badge {
-    background-color: grey;
-    color: white;
 }
